@@ -1,6 +1,9 @@
 pipeline{
     agent any
-    tools {nodejs "node-"}
+    tools {
+        nodejs "node-"
+        git "Default"
+        }
     stages{
         stage("checkout"){
             steps{
