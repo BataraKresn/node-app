@@ -31,6 +31,7 @@ pipeline{
                     sh 'echo ${PSW} | docker login -u ${USER} --password-stdin 100.102.123.78:8085'
                     sh 'docker push 100.102.123.78:8085/my-node-app:${BUILD_NUMBER}'
                     sh 'docker logout'
+                }
             }
         }
     }
