@@ -25,7 +25,7 @@ pipeline{
                 sh 'docker build -t 100.102.123.78:8085/my-node-app:${BUILD_NUMBER} .'
             }
         }
-        stage("Docker Push"){
+        stage("Docker Push to Nexus"){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
                     sh 'echo ${PSW} | docker login -u ${USER} --password-stdin 100.102.123.78:8085'
