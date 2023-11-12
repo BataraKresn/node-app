@@ -22,7 +22,7 @@ pipeline{
         }
         stage("Build Image"){
             steps{
-                sh 'docker build -t my-node-app:1.0 .'
+                sh 'docker build -t 100.102.123.78:8085/test-go:${BUILD_NUMBER} .'
             }
         }
         stage("Docker Push"){
