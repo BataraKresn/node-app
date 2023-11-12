@@ -1,10 +1,5 @@
 pipeline{
-    agent {
-        docker {
-            image 'ubuntu'
-            args '-u root:sudo -v $HOME/workspace/nodejs:/nodejs'
-        }
-    }
+    agent any
     stages{
         stage("checkout"){
             steps{
