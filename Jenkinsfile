@@ -1,5 +1,10 @@
 pipeline{
-    agent any
+    agent {
+        docker {
+            image 'ubuntu'
+            args '-u root:sudo -v $HOME/workspace/nodejs:/nodejs'
+        }
+    }
     stages{
         stage("checkout"){
             steps{
@@ -8,7 +13,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh 'apt install npm'
+                sh 'sudo apt install npm'
                 sh 'npm test'
             }
         }
