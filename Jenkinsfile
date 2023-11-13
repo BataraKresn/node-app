@@ -35,5 +35,15 @@ pipeline{
                 }
             }
         }
+        stage("Docker Pull & Run Image"){
+            steps{
+                script {
+                    sshagent(['ssh-staging']) {
+                            sh "ssh ubuntu@100.102.123.78"
+                            sh "docker pull 100.102.123.78:8085/my-node-app:${BUILD_NUMBER}"
+                    }
+            }
+            }
+        }
     }
 }
