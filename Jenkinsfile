@@ -41,6 +41,7 @@ pipeline{
                     sshagent(['ssh-staging']) {
                             sh "ssh ubuntu@100.102.123.78"
                             sh "docker pull 100.102.123.78:8085/my-node-app:${BUILD_NUMBER}"
+                            sh "docker stop appt-node"
                             sh "docker run -d --name apps-node -p 8182:3032 --restart=always 100.102.123.78:8085/my-node-app:${BUILD_NUMBER}"
                     }
             }
