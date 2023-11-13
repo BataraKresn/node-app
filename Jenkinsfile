@@ -39,7 +39,7 @@ pipeline{
             steps{
                 script {
                     sshagent(['ssh-staging-uidsa']) {
-                            sh "ssh ubuntu@stag-uidsa"
+                            sh "ssh ubuntu@30.30.30.195"
                     }
             }
             }
