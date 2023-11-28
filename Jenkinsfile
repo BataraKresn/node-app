@@ -40,12 +40,13 @@ pipeline{
                 script {
                     sshagent(['ssh-staging']) {
                             sh 'ssh ubuntu@100.102.123.78'
-                            sh 'ssh ubuntu@100.102.123.78 'docker pull 100.102.123.78:8085/digital-archiving-frontend:1.0.0'
+                            sh "ssh ubuntu@100.102.123.78 'docker pull 100.102.123.78:8085/digital-archiving-frontend:1.0.0"
                             sh 'docker pull 100.102.123.78:8085/digital-archiving-frontend:1.0.0'
                             sh 'docker run -d --name digital-archiving-frontend -p 5000:3000 --restart=always 100.102.123.78:8085/digital-archiving-frontend:1.0.0'
                     }
+                            
+                    }
                 }
             }
-        }
     }
 }
